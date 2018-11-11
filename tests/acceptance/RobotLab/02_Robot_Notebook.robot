@@ -1,6 +1,6 @@
 *** Settings ***
-Documentation     Try out some browsers with RobotLab Notebooks
-Test Template     Can RobotLab make a Robot Notebook?
+Documentation     Try out some browsers with cadlab Notebooks
+Test Template     Can cadlab make a Robot Notebook?
 Library           SeleniumLibrary
 Resource          ../../resources/Launch.robot
 Resource          ../../resources/Shell.robot
@@ -14,12 +14,12 @@ Firefox
     headlessfirefox
 
 *** Keywords ***
-Can RobotLab make a Robot Notebook?
+Can cadlab make a Robot Notebook?
     [Arguments]    ${browser}
     [Documentation]    Try a basic Robot Notebook
     Set Tags    browser:${browser}
     ${prefix} =    Set Variable    robot_${browser}_
-    Open RobotLab    ${browser}
+    Open cadlab    ${browser}
     Launch a new    Robot Framework    Notebook
     Capture Page Screenshot    ${prefix}_01_notebook.png
     Add and Run Cell    | *Test Case* |${\n}| Hello |${\n}| | Log | Hello World

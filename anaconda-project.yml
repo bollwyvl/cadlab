@@ -23,21 +23,21 @@ commands:
     env_spec: _build_win
 
   lab:setup:
-    env_spec: robotlab-dev
-    unix: cd robotlab && python -m pip install -e . --ignore-installed --no-deps --no-cache-dir
+    env_spec: cadlab-dev
+    unix: cd cadlab && python -m pip install -e . --ignore-installed --no-deps --no-cache-dir
       -vv
-    windows: cd robotlab && python -m pip install -e . --ignore-installed --no-deps
+    windows: cd cadlab && python -m pip install -e . --ignore-installed --no-deps
       --no-cache-dir -vv
 
-  robotlab:build:
-    env_spec: robotlab-dev
-    unix: robotlab build
-    windows: robotlab build
+  cadlab:build:
+    env_spec: cadlab-dev
+    unix: cadlab build
+    windows: cadlab build
 
-  robotlab:
-    env_spec: robotlab-dev
-    unix: robotlab
-    windows: robotlab
+  cadlab:
+    env_spec: cadlab-dev
+    unix: cadlab
+    windows: cadlab
 
 env_specs:
   _build:
@@ -53,7 +53,7 @@ env_specs:
     inherit_from:
     - _robots_from_jupyter
 
-  robotlab-dev:
+  cadlab-dev:
     channels:
     - ./_artifacts/conda-bld
     - https://repo.anaconda.com/pkgs/main
@@ -65,11 +65,11 @@ env_specs:
     - robotkernel
     - python >=3.6,<3.7
 
-  robotlab-test:
+  cadlab-test:
     inherit_from:
-    - robotlab-dev
+    - cadlab-dev
     packages:
-    - robotlab
+    - cadlab
 
   _robots_from_jupyter:
     packages:

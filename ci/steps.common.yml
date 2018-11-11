@@ -4,12 +4,8 @@ parameters:
 steps:
   - script: >
       python -m scripts.build conda
-      lunr
-      robotframework
-      robotframework-lint
-      robotframework-seleniumlibrary
-      robotkernel
-      robotlab
+      openmdao
+      cadlab
     displayName: Build Conda Packages
 
   - script: python -m scripts.build constructor

@@ -13,7 +13,6 @@ from . import (
     PY_MAX,
     PY_MIN,
     RECIPE_DIR,
-    RF_VERSION,
     VERSION,
     run,
 )
@@ -64,7 +63,6 @@ def build_constructor():
         py_max=PY_MAX,
         node_min=NODE_MIN,
         node_max=NODE_MAX,
-        rf_version=RF_VERSION,
         version=VERSION,
     )
 

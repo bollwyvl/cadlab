@@ -1,6 +1,6 @@
 *** Settings ***
-Documentation     Try out some browsers with RobotLab Notebooks
-Test Template     Can RobotLab make an IPython Notebook?
+Documentation     Try out some browsers with cadlab Notebooks
+Test Template     Can cadlab make an IPython Notebook?
 Library           SeleniumLibrary
 Resource          ../../resources/Launch.robot
 Resource          ../../resources/Shell.robot
@@ -14,12 +14,12 @@ Firefox
     headlessfirefox
 
 *** Keywords ***
-Can RobotLab make an IPython Notebook?
+Can cadlab make an IPython Notebook?
     [Arguments]    ${browser}
     [Documentation]    Try a basic IPython Notebook
     Set Tags    browser:${browser}
     ${prefix} =    Set Variable    ipython_${browser}_
-    Open RobotLab    ${browser}
+    Open cadlab    ${browser}
     Launch a new    Python 3    Notebook
     Capture Page Screenshot    ${prefix}_01_notebook.png
     Add and Run Cell    print("Hello" + " World")

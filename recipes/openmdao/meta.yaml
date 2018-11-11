@@ -1,0 +1,42 @@
+{% set name = "OpenMDAO" %}
+{% set version = "2.5.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/OpenMDAO/OpenMDAO/archive/281c685eb6f3c1e497078bdc7af353b0cec876aa.zip
+  sha256: d58439c548433adcda98e695be53e526ba940a4b9c44fb9a05d92cd495cdd47f
+
+build:
+  number: 0
+  script:
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - networkx >=2.0
+    - numpy
+    - pydoe2
+    - pyparsing
+    - scipy
+    - six
+
+test:
+  imports:
+    - openmdao
+
+about:
+  home: http://openmdao.org/
+  license: Apache-2.0
+  license_family: Apache
+  license_file: LICENSE.txt
+  summary: An open-source framework for efficient multidisciplinary optimization.
+
+  doc_url: http://openmdao.org/twodocs/versions/latest/
+  dev_url: https://github.com/OpenMDAO/OpenMDAO

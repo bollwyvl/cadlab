@@ -1,4 +1,4 @@
-name: RobotLab
+name: cadlab
 version: {{ version }}
 
 channels:
@@ -8,18 +8,14 @@ channels:
   - https://conda.anaconda.org/conda-forge
 
 specs:
+  - cadlab =={{ version }}
+  - cadquery
   - conda
-  - geckodriver
-  - jupyterlab
+  - bqplot
+  - freecad
   - nodejs >={{ node_min }},<{{ node_max }}
-  - opencv
+  - openmdao
   - python >={{ py_min }},<{{ py_max }}
-  - python-chromedriver-binary
-  - python-chromedriver-binary
-  - robotframework =={{ rf_version }}
-  - robotframework-lint
-  - robotframework-seleniumlibrary
-  - robotkernel =={{ version }}
-  - robotlab =={{ version }}
+  - scipy
 
 install_in_dependency_order: True

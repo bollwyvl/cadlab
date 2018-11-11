@@ -1,4 +1,4 @@
 *** Settings ***
-Suite Setup       Run the RobotLab installer
-Suite Teardown    Clean up the RobotLab installation
+Suite Setup       Run the cadlab installer
+Suite Teardown    Clean up the cadlab installation
 Resource          ../resources/Install.robot

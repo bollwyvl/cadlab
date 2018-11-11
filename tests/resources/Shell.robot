@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     Interact with the RobotLab ne JupyterLab application shell
+Documentation     Interact with the cadlab ne JupyterLab application shell
 Library           BuiltIn
 Library           SeleniumLibrary
 Library           OperatingSystem
@@ -18,10 +18,10 @@ ${CARD}           //div[@class='jp-LauncherCard']
 ${DOCK}           //div[@id='jp-main-dock-panel']
 
 *** Keywords ***
-Open RobotLab
+Open cadlab
     [Arguments]    ${browser}
-    [Documentation]    Start RobotLab in a browser
-    Should Not Be Empty    ${LAB URL}    msg=Needs a configured RobotLab server
+    [Documentation]    Start cadlab in a browser
+    Should Not Be Empty    ${LAB URL}    msg=Needs a configured cadlab server
     Open Browser    ${LAB URL}    ${browser}
     Wait for Splash Screen
 

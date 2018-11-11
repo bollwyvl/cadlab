@@ -2,7 +2,7 @@ import sys
 from . import ROOT, run
 
 
-PY_SRC = [str(ROOT / "robotlab"), str(ROOT / "scripts")]
+PY_SRC = [str(ROOT / "cadlab"), str(ROOT / "scripts")]
 RF_SRC = list(map(str, (ROOT / "tests").rglob("*.robot")))
 
 

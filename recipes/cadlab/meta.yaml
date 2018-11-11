@@ -1,0 +1,50 @@
+{% set name = "cadlab" %}
+{% set version = "0.1.0" %}
+
+{% set extensions = "@jupyterlab/toc@0.6.0 @jupyter-widgets/jupyterlab-manager@0.38.1 jupyter-threejs@2.0.1 jupyterlab-datawidgets@6.1.0 bqplot@0.4.3" %}
+{% set lab_min = "0.35" %}
+{% set lab_max = "0.36" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: ../../cadlab
+
+build:
+  number: 0
+  entry_points:
+    - cadlab = cadlab.labapp:main
+    - cadlab-extension = cadlab.labextensionapp:main
+  script:
+    - {{ PYTHON }} -m pip install --no-deps --ignore-installed --no-cache-dir -vvv .
+    - {{ PYTHON }} -m cadlab.labextensionapp install {{ extensions }} --no-build
+    - {{ PYTHON }} -m cadlab.labextensionapp list
+    - {{ PYTHON }} -m cadlab.labapp build
+    - {{ PYTHON }} -m cadlab.labextensionapp list
+    - rm -rf {{ PREFIX }}/share/jupyter/cadlab/staging  # [unix]
+    - rd /s /q {{ PREFIX }}\share\jupyter\cadlab\staging  # [win]
+    - {{ PYTHON }} -m cadlab.labextensionapp list
+
+requirements:
+  host:
+    - jupyterlab >={{ lab_min }},<{{ lab_max }}
+    - nodejs >=8,<9
+    - pip
+    - python
+  run:
+    - jupyterlab >={{ lab_min }},<{{ lab_max }}
+    - python
+
+test:
+  commands:
+    - cadlab --version
+    - cadlab-extension list
+
+about:
+  home: https://github.com/deathbeds/cadlab
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
+  summary: A JupyterLab built for a cadquery

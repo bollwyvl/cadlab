@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       Launch RobotLab Server
+Suite Setup       Launch cadlab Server
 Suite Teardown    Terminate All Processes
 Test Teardown     Reset Application State and Close
 Force Tags        ui:lab
