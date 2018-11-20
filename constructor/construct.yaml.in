@@ -13,7 +13,9 @@ specs:
   - cadquery
   - conda
   - importnb
+  - itkwidgets
   - nodejs >={{ node_min }},<{{ node_max }}
+  - numpy-stl
   - openmdao
   - petsc
   - petsc4py

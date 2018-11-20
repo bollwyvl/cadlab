@@ -1,7 +1,7 @@
 {% set name = "cadlab" %}
 {% set version = "0.1.0" %}
 
-{% set extensions = "@jupyterlab/toc@0.6.0 @jupyter-widgets/jupyterlab-manager@0.38.1 jupyter-threejs@2.0.1 jupyterlab-datawidgets@6.1.0 bqplot@0.4.3" %}
+{% set extensions = "@jupyterlab/toc@0.6.0 @jupyter-widgets/jupyterlab-manager@0.38.1 jupyter-threejs@2.0.1 jupyterlab-datawidgets@6.1.0 bqplot@0.4.3 itk-jupyter-widgets@0.15.0" %}
 {% set lab_min = "0.35" %}
 {% set lab_max = "0.36" %}
 
@@ -43,7 +43,7 @@ test:
     - cadlab-extension list
 
 about:
-  home: https://github.com/deathbeds/cadlab
+  home: https://github.com/bollwyvl/cadlab
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE

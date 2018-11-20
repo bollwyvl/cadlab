@@ -1,0 +1,15 @@
+--- recipes/itkwidgets/setup.py	2018-11-19 23:00:45.023206186 -0500
++++ recipes/itkwidgets/setup.py	2018-11-19 23:01:04.731321874 -0500
+@@ -161,12 +161,6 @@
+     ],
+     'packages': find_packages(),
+     'zip_safe': False,
+-    'cmdclass': {
+-        'build_py': js_prerelease(build_py),
+-        'egg_info': js_prerelease(egg_info),
+-        'sdist': js_prerelease(sdist, strict=True),
+-        'jsdeps': NPM,
+-    },
+
+     'author': 'Matthew McCormick',
+     'author_email': 'matt.mccormick@kitware.com',

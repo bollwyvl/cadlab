@@ -22,23 +22,6 @@ commands:
     windows: python -m scripts.test
     env_spec: _build_win
 
-  lab:setup:
-    env_spec: cadlab-dev
-    unix: cd cadlab && python -m pip install -e . --ignore-installed --no-deps --no-cache-dir
-      -vv
-    windows: cd cadlab && python -m pip install -e . --ignore-installed --no-deps
-      --no-cache-dir -vv
-
-  cadlab:build:
-    env_spec: cadlab-dev
-    unix: cadlab build
-    windows: cadlab build
-
-  cadlab:
-    env_spec: cadlab-dev
-    unix: cadlab
-    windows: cadlab
-
 env_specs:
   _build:
     platforms:
@@ -52,12 +35,6 @@ env_specs:
     - win-64
     inherit_from:
     - _cadlab_build
-
-  cadlab-test:
-    inherit_from:
-    - cadlab-dev
-    packages:
-    - cadlab
 
   _cadlab_build:
     packages:
