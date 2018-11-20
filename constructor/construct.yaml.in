@@ -3,19 +3,22 @@ version: {{ version }}
 
 channels:
   - {{ build_channel }}
+  - https://conda.anaconda.org/conda-forge
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/free
-  - https://conda.anaconda.org/conda-forge
 
 specs:
+  - bqplot
   - cadlab =={{ version }}
   - cadquery
   - conda
-  - bqplot
-  - freecad
+  - importnb
   - nodejs >={{ node_min }},<{{ node_max }}
   - openmdao
+  - petsc
+  - petsc4py
+  - pyoptsparse
   - python >={{ py_min }},<{{ py_max }}
-  - scipy
+  - pythreejs
 
 install_in_dependency_order: True

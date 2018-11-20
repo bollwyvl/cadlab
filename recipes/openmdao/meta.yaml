@@ -1,35 +1,53 @@
-{% set name = "OpenMDAO" %}
-{% set version = "2.5.0" %}
-
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: {% set name = "openmdao" %}{{ name|lower }}
+  version: {% set version = "2.5.0" %}{{ version }}
 
 source:
-  url: https://github.com/OpenMDAO/OpenMDAO/archive/281c685eb6f3c1e497078bdc7af353b0cec876aa.zip
-  sha256: d58439c548433adcda98e695be53e526ba940a4b9c44fb9a05d92cd495cdd47f
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: f0266a85dc7dc6475a125959d8df1db6fd15652e568911b8655a6cfd683fc34d
 
 build:
   number: 0
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  entry_points:
+    - wingproj=openmdao.devtools.wingproj:run_wing
+    - webview=openmdao.devtools.webview:webview_argv
+    - run_test=openmdao.devtools.run_test:run_test
+    - openmdao=openmdao.utils.om:openmdao_cmd
 
 requirements:
   host:
     - python
     - pip
   run:
-    - python
     - networkx >=2.0
     - numpy
     - pydoe2
     - pyparsing
+    - python
     - scipy
     - six
+    - tornado
 
 test:
+  requires:
+    - matplotlib
+    - mock
+    - numpydoc
+    - parameterized
+    - petsc
+    - petsc4py
+    - pycodestyle ==2.3.1
+    - pydocstyle ==2.0.0
+    - pyoptsparse
+    - requests-mock
+    - testflo
   imports:
     - openmdao
+  commands:
+    - openmdao --help
+    - testflo -n 1 openmdao --coverage --coverpkg openmdao
 
 about:
   home: http://openmdao.org/

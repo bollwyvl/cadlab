@@ -45,25 +45,13 @@ env_specs:
     - linux-64
     - osx-64
     inherit_from:
-    - _robots_from_jupyter
+    - _cadlab_build
 
   _build_win:
     platforms:
     - win-64
     inherit_from:
-    - _robots_from_jupyter
-
-  cadlab-dev:
-    channels:
-    - ./_artifacts/conda-bld
-    - https://repo.anaconda.com/pkgs/main
-    - https://repo.anaconda.com/pkgs/free
-    - https://conda.anaconda.org/conda-forge
-    packages:
-    - jupyterlab >=0.35,<0.36
-    - nodejs >=8,<9
-    - robotkernel
-    - python >=3.6,<3.7
+    - _cadlab_build
 
   cadlab-test:
     inherit_from:
@@ -71,7 +59,7 @@ env_specs:
     packages:
     - cadlab
 
-  _robots_from_jupyter:
+  _cadlab_build:
     packages:
     - black
     - conda >=4.5.11,<4.6
@@ -86,6 +74,6 @@ env_specs:
     - robotframework-lint
     - robotframework-seleniumlibrary
     channels:
+    - https://conda.anaconda.org/conda-forge
     - https://repo.anaconda.com/pkgs/main
     - https://repo.anaconda.com/pkgs/free
-    - https://conda.anaconda.org/conda-forge

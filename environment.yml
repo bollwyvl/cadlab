@@ -1,9 +1,9 @@
-name: _robots_from_jupyter
+name: _cadlab_build
 
 channels:
+  - https://conda.anaconda.org/conda-forge
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/free
-  - https://conda.anaconda.org/conda-forge
 
 dependencies:
   - black

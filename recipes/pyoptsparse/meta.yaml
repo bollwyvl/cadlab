@@ -1,0 +1,52 @@
+package:
+  name: {% set name = "pyoptsparse" %}{{ name }}
+  version: {% set version = "2018.06.29" %}{{ version }}
+
+source:
+  url: https://github.com/OpenMDAO/{{ name }}/archive/fb8e46f3429d82b71b6bad070964f334c1345293.zip
+  sha256: 7f25a81509b824cd894a1ba235ca4c2bf8b4526d65ee92f694e4e897e495d7aa
+
+build:
+  number: 0
+  script:
+    - python setup.py build_ext --inplace
+    - python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+    - swig
+  host:
+    - mpi4py
+    - numpy
+    - pip
+    - python
+    - scipy
+  run:
+    - mpi4py
+    - numpy
+    - python
+    - scipy
+    - six
+
+test:
+  imports:
+    - pyoptsparse
+    - pyoptsparse.pyALPSO
+    - pyoptsparse.pyCONMIN
+    - pyoptsparse.pyFSQP
+    - pyoptsparse.pyIPOPT
+    - pyoptsparse.pyNLPQLP
+    - pyoptsparse.pyNLPY_AUGLAG
+    - pyoptsparse.pyNSGA2
+    - pyoptsparse.pyPSQP
+    - pyoptsparse.pySLSQP
+    - pyoptsparse.pySNOPT
+
+about:
+  home: https://github.com/OpenMDAO/pyoptsparse
+  license: LGPL-3-or-later
+  license_family: GPL
+  license_file: LICENSE

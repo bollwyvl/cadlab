@@ -1,0 +1,40 @@
+{% set version = "0.5.0" %}
+
+package:
+  name: importnb
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/i/importnb/importnb-{{ version }}.tar.gz
+  sha256: e9a8135db2b8ff38301631a0b621572e248383bbc462a266c4e3a279158e1b27
+
+build:
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
+  skip: True  # [py<34]
+
+requirements:
+  host:
+    - python
+    - pip
+    - pytest-runner
+    - wheel >=0.31.0
+    - twine >=1.11.0
+  run:
+    - python
+    - setuptools
+    - dataclasses
+    - nbconvert
+    # importlib_resources will be [not py>36] and this will be arch again :-(
+    - importlib_resources
+
+test:
+  imports:
+    - importnb
+
+about:
+  home: https://github.com/deathbeds/importnb
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
+  summary: Import .ipynb files as modules in the system path

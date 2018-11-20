@@ -40,15 +40,6 @@ compatible with the version `cadlab` was built with: as of writing, `0.35.x`.
 All of the dependencies are captured in [construct.yaml.in][]. In addition to
 everything mentioned above, you'll also find:
 
-In addition, to support the workshop, a number of libraries are included:
-- `SeleniumLibrary` for controlling browsers
-  - `geckodriver` for interacting with Firefox
-  - `python-chromedriver-binary` for interacting with Chrome & Chromium
-  - > Note: it's pretty easy to get `webdriver` for Edge, but can't be redistributed
-- `opencv` for doing image-driven testing
-- `robotframework-lint` for normalizing your robot syntax
-
-
 [anaconda-project]: https://github.com/anaconda-platform/anaconda-project
 [conda-forge]: https://github.com/conda-forge
 [conda]: https://github.com/conda/conda
